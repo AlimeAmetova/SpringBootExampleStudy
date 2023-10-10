@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PRODUCT</title>
+</head>
+<body>
+<h3>Учебный проект №1 без подключения к БД. Следующий проект №2 будет подключать JPA, MySql </h3>
+<hr>
+<h2>Товары</h2>
+<div th:each="product : ${products}">
+    <div>
+        <p><b th:text="${product.title}"></b> <span th:text="${product.price}"></span> руб. |
+            <a th:href="@{/product/{id}(id=${product.id})}">Подробнее...</a></p>
+    </div>
+</div>
+<hr>
+<h3>Создать новый товар</h3>
+<form action="/product/create" method="post">
+    Название объявления: <input type="text" name="title"/><br><br>
+    Описание объявления: <input type="text" name="descriptions"/><br><br>
+    Цена: <input type="number" name="price"/><br><br>
+    Имя поставщика: <input type="text" name="name"/><br><br>
+    Тел поставщика: <input type="text" name="number"/><br><br>
+    <input type="submit" value="Добавить товар"/>
+</form>
+</body>
+</html>

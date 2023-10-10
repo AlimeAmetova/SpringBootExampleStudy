@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>INFO</title>
+</head>
+<body>
+<h1>Подробнее о товаре</h1>
+<hr>
+<h4>Подробная информация о товаре</h4>
+<b>Название товара: </b><span th:text="${product.title}"></span><br>
+<b>Описание товара: </b><span th:text="${product.descriptions}"></span><br>
+<b>Цена: </b><span th:text="${product.price}"></span><br>
+<b>Имя поставщика: </b><span th:text="${product.name}"></span><br>
+<b>Тел поставщика: </b><span th:text="${product.number}"></span><br>
+<hr>
+<form th:action="@{/product/delete/{id}(id=${product.id})}" method="post">
+    <input type="submit" value="Удалить товар"/>
+</form>
+<h3>Изменить товар</h3>
+<form th:action="@{/product/change/{id}(id=${product.id})}" method="post">
+    Название объявления: <input type="text" name="title"/><br><br>
+    Описание объявления: <input type="text" name="descriptions"/><br><br>
+    Цена: <input type="number" name="price"/><br><br>
+    Имя поставщика: <input type="text" name="name"/><br><br>
+    Тел поставщика: <input type="text" name="number"/><br><br>
+    <input type="submit" value="Изменить товар"/>
+</form>
+</body>
+</html>
