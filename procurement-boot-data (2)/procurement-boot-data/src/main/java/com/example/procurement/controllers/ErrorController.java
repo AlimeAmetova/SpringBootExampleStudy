@@ -16,7 +16,7 @@ public class ErrorController {
 
     @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
     public String handleNotFoundException(ChangeSetPersister.NotFoundException ex, Model model) {
-        model.addAttribute("errorMessage", "Не найден: " + ex.getMessage());
+        model.addAttribute("errorMessage", "Не найден продукт: " + ex.getMessage());
         return "error";
     }
 }
